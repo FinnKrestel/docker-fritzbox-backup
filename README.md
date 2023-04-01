@@ -1,4 +1,4 @@
-fritzbox-config-downloader
+docker-fritzbox-backup
 ==========================
 
 Downloads a configuration backup of an AVM Fritz!Box to the a file.
