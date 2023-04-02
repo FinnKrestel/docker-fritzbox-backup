@@ -1,0 +1,24 @@
+---
+version: "3"
+
+volumes:
+  fritzbox-backups:
+    driver: local
+
+services:
+  fritzbox-backup:
+    image: finnkrestel/docker-fritzbox-backup
+    container_name: fritzbox-backup
+    security_opt:
+      - "no-new-privileges:true"
+    volumes:
+      - fritzbox-backups:/backups
+    environment:
+      - HOST=fritz.box
+      - USERNAME=fritzXXXX
+      - PASSWORD=password
+      - EXPORT_PASSWORD=export_password
+#      - EXPORT_FILENAME=FritzBox.export
+#      - SECOND_PASSWORD=second_password
+      - RETENTION_DAYS=14
+      - CRON=0 4 * * *
